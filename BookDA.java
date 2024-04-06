@@ -5,7 +5,7 @@ public class BookDA {
     private HashMap<String, Book> bookMap;
     public BookDA() throws FileNotFoundException {
         bookMap = new HashMap<>();
-        Scanner file = new Scanner(new FileReader("C:\\Users\\neu\\IdeaProjects\\HashMapActivity\\src\\Book.csv"));
+        Scanner file = new Scanner(new FileReader("/workspaces/BookReport/Book.csv"));
 
         while(file.hasNextLine()) {
             String rawFile = file.nextLine();
@@ -14,10 +14,13 @@ public class BookDA {
             Book book = new Book();
             book.setIsbn(rawFileArray[0].trim());
             book.setTitle(rawFileArray[1].trim());
-
+        
+            AuthorDA author = new AuthorDA();
+            book.setAuthor(author.getAuthorMap().get(rawFileArray[2].trim()));
             bookMap.put(book.getIsbn(), book);
         }
     }
+    
     public HashMap<String, Book> getBookMap(){
         return bookMap;
     }

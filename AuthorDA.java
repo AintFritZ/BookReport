@@ -5,7 +5,7 @@ public class AuthorDA {
     private HashMap<String, Author> authorMap;
     public AuthorDA() throws FileNotFoundException {
         authorMap = new HashMap<>();
-        Scanner file = new Scanner(new FileReader("C:\\Users\\neu\\IdeaProjects\\HashMapActivity\\src\\Author.csv"));
+        Scanner file = new Scanner(new FileReader("/workspaces/BookReport/Author.csv"));
 
         while(file.hasNextLine()) {
             String rawFile = file.nextLine();

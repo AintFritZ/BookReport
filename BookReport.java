@@ -1,23 +1,18 @@
-
 import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 
 public class BookReport {
     public static void main(String[] args) throws FileNotFoundException {
-        BookDA book = new BookDA();
-        AuthorDA Author1= new AuthorDA();
-        Author author = new Author();
+        BookDA bookDA = new BookDA();
+        AuthorDA authorDA = new AuthorDA();
 
-        HashMap<String, Book> bookMap = book.getBookMap();
-        HashMap<String, Author> authorMap = Author1.getAuthorMap();
+        HashMap<String, Book> bookMap = bookDA.getBookMap();
+        HashMap<String, Author> authorMap = authorDA.getAuthorMap();
 
-
-        for(Map.Entry<String, Book> bookEntry : bookMap.entrySet()){
-            System.out.println(bookEntry.getValue().getIsbn() + " " + bookEntry.getValue().getTitle());
-            System.out.println(authorEntry.getValue().getName() + " " + authorEntry.getValue().getBio());
-
-            }
+        for(HashMap.Entry<String, Book> entryMap : bookDA.getBookMap().entrySet()){
+            System.out.println(entryMap.getValue().getIsbn()+" " + entryMap.getValue().getTitle() );
+            System.out.println("\t" + entryMap.getValue().getAuthor().getName()+ " " + entryMap.getValue().getAuthor().getBio() + "\n");
         }
     }
+}
